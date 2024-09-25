@@ -48,6 +48,7 @@ public class CalcControl {
 
     @FXML
     public void initialize() {
+        listaOper();
     }
     int t=0;
 
