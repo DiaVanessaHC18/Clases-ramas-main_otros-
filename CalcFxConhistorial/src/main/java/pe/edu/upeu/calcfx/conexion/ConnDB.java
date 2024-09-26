@@ -10,7 +10,7 @@ public class ConnDB {
     public Connection getCoon() {
         try{
             Class.forName("org.sqlite.JDBC");
-            String dbURL = "jdbc:sqlite:data/dbcalc.db?foreign_keys=on;";
+            String dbURL = "jdbc:sqlite:E:\\GitHub repositorio ramas\\Clases-ramas-main_otros-\\CalcFxConhistorial\\data\\dbcalc.db?foreign_keys=on;";
             if (conn == null) {
                 conn = DriverManager.getConnection(dbURL);
             }
