@@ -15,7 +15,7 @@ public class CalcServiceImp implements CalcServiceI{
     //List<CalcTO> dbOper=new ArrayList<CalcTO>();
     @Override
     public void guardarResultados(CalcTO to) {
-       dbOper .insertar(to);
+        dbOper .insertar(to);
     }
 
     @Override
@@ -25,13 +25,12 @@ public class CalcServiceImp implements CalcServiceI{
 
     @Override
     public void eliminarResultados(int index) {
-        //dbOper.remove(index);
-
+        dbOper.eliminar(index);
     }
 
     @Override
     public void actualizarResultados(CalcTO to, int index) {
-        //dbOper.set(index, to);
-
+        dbOper.actualizar(to, index);
     }
 }
+
