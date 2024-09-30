@@ -1,12 +1,17 @@
 package pe.edu.upeu.Tres_raya.TERcontroller;
+import jakarta.annotation.PostConstruct;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import pe.edu.upeu.Tres_raya.modelo.TERmodelo;
 import javafx.event.ActionEvent;
+import pe.edu.upeu.Tres_raya.repositorio.Tres_en_rayaRepository;
+import pe.edu.upeu.Tres_raya.service.servicio.TERservicioImp;
 
 
 import java.io.File;
@@ -14,8 +19,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+@Controller
 @Component
 public class juego_Controller {
+    @Autowired
+    Tres_en_rayaRepository repository;
+
+
     @FXML
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9;
     @FXML
@@ -40,6 +50,7 @@ public class juego_Controller {
     private int indexEdit = -1;
 
     @FXML
+    @PostConstruct
     public void initialize() {
         tablero = new ArrayList<>();
         tablero.add(btn1);
@@ -51,9 +62,18 @@ public class juego_Controller {
         tablero.add(btn7);
         tablero.add(btn8);
         tablero.add(btn9);
-
         desactivar_Boton();
         funcion_tablaPunt();
+
+
+        if (repository != null) {
+            System.out.println("Conectado");
+        } else {
+            System.err.println("Error: El repositorio no está inyectado.");
+        }
+
+
+
     }
 
     private boolean metodo1_error() {
@@ -120,9 +140,7 @@ public class juego_Controller {
             resultadosPartidas.add(nuevaPartidaAnulada);
             ob_modeloJ.add(nuevaPartidaAnulada);
         }
-
         tabla_puntajes.setItems(ob_modeloJ);
-
         btniniciar.setDisable(false);
         btnanular.setDisable(true);
         nombrejugador1.clear();
@@ -195,6 +213,7 @@ public class juego_Controller {
     @FXML
     private void borrar_historial() {
         ob_modeloJ.clear();
+
         resultadosPartidas.clear();
         tabla_puntajes.setItems(ob_modeloJ);
 
@@ -244,8 +263,8 @@ public class juego_Controller {
             f_verpuntuacionT = 1;
         }
 
-        String nombrePartida = (" Partida " +contadorPartidas );
-        TERmodelo datos_fin = new TERmodelo(nombrePartida,nombrejugador1.getText(), nombrejugador2.getText(), estadoPartida.equals("Empate") ? "Empate" : (jugadorActual.equals("X") ? nombrejugador1.getText() : nombrejugador2.getText()), f_verpuntuacionT, estadoPartida);
+        String nombrePartida = (" Partida " + contadorPartidas);
+        TERmodelo datos_fin = new TERmodelo(nombrePartida, nombrejugador1.getText(), nombrejugador2.getText(), estadoPartida.equals("Empate") ? "Empate" : (jugadorActual.equals("X") ? nombrejugador1.getText() : nombrejugador2.getText()), f_verpuntuacionT, estadoPartida);
         if (indexEdit >= 0) {
             resultadosPartidas.set(indexEdit, datos_fin);
             ob_modeloJ.set(indexEdit, datos_fin);
@@ -253,6 +272,7 @@ public class juego_Controller {
             resultadosPartidas.add(datos_fin);
             ob_modeloJ.add(datos_fin);
         }
+        repository.save(datos_fin);
         contadorPartidas++;
         tabla_puntajes.setItems(ob_modeloJ);
         desactivar_Boton();
@@ -261,6 +281,8 @@ public class juego_Controller {
         nombrejugador1.clear();
         nombrejugador2.clear();
     }
+
+
 
     private void SumarPuntajes0() {
         if (jugadorActual.equals("X")) {
@@ -314,4 +336,7 @@ public class juego_Controller {
         puntuacion.setCellValueFactory(new PropertyValueFactory<>("puntuacion"));
         control_estado.setCellValueFactory(new PropertyValueFactory<>("estado"));
     }
+
+
+
 }

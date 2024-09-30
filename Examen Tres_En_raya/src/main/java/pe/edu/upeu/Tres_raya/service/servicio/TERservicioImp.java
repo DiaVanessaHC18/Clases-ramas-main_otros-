@@ -1,28 +1,35 @@
 package pe.edu.upeu.Tres_raya.service.servicio;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upeu.Tres_raya.modelo.TERmodelo;
-import java.util.ArrayList;
+import pe.edu.upeu.Tres_raya.repositorio.Tres_en_rayaRepository;
+
 import java.util.List;
+
 @Service
 public class TERservicioImp implements Interface_juego {
-    public List<TERmodelo> lismo=new ArrayList<>();
+    @Autowired
+    private Tres_en_rayaRepository repository;
+
     @Override
     public void guardarResultados(TERmodelo to) {
-        lismo.add(to);
+        repository.save(to);
     }
 
     @Override
     public List<TERmodelo> obtenerResultados() {
-        return lismo;
+        return repository.findAll();
     }
 
     @Override
-    public void actualizarResultados(TERmodelo to, int index) {
-        lismo.set(index ,to);
+    public void actualizarResultados(TERmodelo to, Long index) {
+        to.setId(index);
+        repository.save(to);
     }
 
     @Override
-    public void eliminarResultados(int index) {
-        lismo.remove(index);
+    public void eliminarResultados(Long index) {
+        repository.deleteById(index);
     }
 }
