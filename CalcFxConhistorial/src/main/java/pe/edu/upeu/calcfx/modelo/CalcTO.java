@@ -5,7 +5,7 @@ public class CalcTO {
     String num2;
     char operador;
     String resultado;
-
+    int id;
 
     @Override
     public String toString() {
@@ -47,5 +47,12 @@ public class CalcTO {
 
     public void setResultado(String resultado) {
         this.resultado = resultado;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

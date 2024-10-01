@@ -10,3 +10,4 @@ public interface CalcServiceI {
     public void eliminarResultados (int index);//U
     public void actualizarResultados (CalcTO to,int index);//D
 }
+
