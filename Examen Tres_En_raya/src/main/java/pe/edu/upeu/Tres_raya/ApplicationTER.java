@@ -8,7 +8,7 @@ import pe.edu.upeu.Tres_raya.TERcontroller.juego_Controller;
 
 public class ApplicationTER {
     public static void main(String[] args) {
-        SpringApplication.run(TresRayaApplication.class, args);
+        SpringApplication.run(TresRayaApplication.class, args);git add
         TresRayaApplication.main(args);
     }
 
