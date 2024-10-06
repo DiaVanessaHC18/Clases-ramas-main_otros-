@@ -82,7 +82,7 @@ public class MainX {
                 case 3:{
                     actualizar();}break;
                 case 4:{
-                    borrar1();break;
+                    borrar();break;
                 }
             }
             System.out.println(mensaje);
