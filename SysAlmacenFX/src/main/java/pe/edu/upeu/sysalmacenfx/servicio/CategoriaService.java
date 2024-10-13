@@ -1,11 +1,9 @@
 package pe.edu.upeu.sysalmacenfx.servicio;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upeu.sysalmacenfx.dto.ComboBoxOption;
 import pe.edu.upeu.sysalmacenfx.modelo.Categoria;
 import pe.edu.upeu.sysalmacenfx.repositorio.CategoriaRepository;
-
 import java.util.ArrayList;
 import java.util.List;
 

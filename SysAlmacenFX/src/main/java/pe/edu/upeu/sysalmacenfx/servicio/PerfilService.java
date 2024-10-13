@@ -3,34 +3,34 @@ package pe.edu.upeu.sysalmacenfx.servicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upeu.sysalmacenfx.dto.ComboBoxOption;
-import pe.edu.upeu.sysalmacenfx.modelo.Marca;
-import pe.edu.upeu.sysalmacenfx.repositorio.MarcaRepository;
+import pe.edu.upeu.sysalmacenfx.modelo.Cliente;
+import pe.edu.upeu.sysalmacenfx.modelo.Perfil;
+import pe.edu.upeu.sysalmacenfx.repositorio.PerfilRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-
-public class MarcaService {
+public class PerfilService {
     @Autowired
-    MarcaRepository repo;
+    PerfilRepository repo;
 
     //C
-    public Marca save(Marca to) {
+    public Perfil save(Perfil to) {
         return repo.save(to);
     }
 
     //R
-    public List<Marca> list() {
+    public List<Perfil> list() {
         return repo.findAll();
     }
 
     //U
-    public Marca update(Marca to, Long id) {
+    public Perfil update(Cliente to, Long id) {
         try {
-            Marca toe=repo.findById(id).get();
+            Perfil toe=repo.findById(id).get();
             if(toe!=null) {
-                toe.setNombre(to.getNombre());
+                toe.setNombre(to.getNombres());
             }
             return repo.save(toe);
         }catch (Exception e){
@@ -38,7 +38,7 @@ public class MarcaService {
         }return null;
     }
 
-    public Marca update(Marca to){
+    public Perfil update(Perfil to){
         return repo.save(to);
     }
 
@@ -47,16 +47,17 @@ public class MarcaService {
         repo.deleteById(id);
     }
 
-    public Marca searchById(Long id){
+    public Perfil searchById(Long id){
         return repo.findById(id).get();
     }
 
+
     public List<ComboBoxOption> listarCombobox(){
         List<ComboBoxOption> listar =new ArrayList<>();
-        for (Marca cate : repo.findAll()) {
-            listar.add(new ComboBoxOption(String.valueOf(cate.getIdMarca()),cate.getNombre()));
+        for (Perfil cate : repo.findAll()) {
+            listar.add(new ComboBoxOption(String.valueOf(cate.getIdPerfil()),cate.getNombre()));
         }
         return listar;
+
     }
 }
-
