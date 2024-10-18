@@ -3,6 +3,7 @@ package pe.edu.upeu.sysalmacenfx.control;
 import jakarta.validation.Validator;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -11,13 +12,20 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import pe.edu.upeu.sysalmacenfx.componente.ColumnInfo;
 import pe.edu.upeu.sysalmacenfx.componente.ComboBoxAutoComplete;
+import pe.edu.upeu.sysalmacenfx.componente.TableViewHelper;
 import pe.edu.upeu.sysalmacenfx.dto.ComboBoxOption;
 import pe.edu.upeu.sysalmacenfx.modelo.Producto;
 import pe.edu.upeu.sysalmacenfx.servicio.CategoriaService;
 import pe.edu.upeu.sysalmacenfx.servicio.MarcaService;
 import pe.edu.upeu.sysalmacenfx.servicio.ProductoService;
 import pe.edu.upeu.sysalmacenfx.servicio.UnidadMedidaService;
+
+import java.util.LinkedHashMap;
+import java.util.function.Consumer;
+
+import static pe.edu.upeu.sysalmacenfx.componente.Toast.showToast;
 
 @Component
 public class ProductoController {
@@ -96,8 +104,53 @@ public class ProductoController {
         });
         new ComboBoxAutoComplete<>(cbxUnidMedida);
 
+        // Crear instancia de la clase genérica TableViewHelper
+        TableViewHelper<Producto> tableViewHelper = new TableViewHelper<>();
+        LinkedHashMap<String, ColumnInfo> columns = new LinkedHashMap<>();
+        columns.put("ID Pro.", new ColumnInfo("idProducto", 50.0)); // Columna visible "Columna 1" mapea al campo "campo1"
+        columns.put("Nombre Producto", new ColumnInfo("nombre", 120.0)); // Columna visible "Columna 2" mapea al campo "campo2"
+        columns.put("P. Unitario", new ColumnInfo("pu", 100.0)); // Columna visible "Columna 2" mapea al campo "campo2"
+        columns.put("Utilidad", new ColumnInfo("utilidad", 80.0)); // Columna visible "Columna 2" mapea al campo "campo2"
+        columns.put("Marca", new ColumnInfo("marca.nombre", 70.0)); // Columna visible "Columna 2" mapea al campo "campo2"
+        columns.put("Categoria", new ColumnInfo("categoria.nombre", 80.0)); // Columna visible "Columna 2" mapea al campo "campo2"
+
+        columns.put("Unid. Medida",new ColumnInfo("unidadMedida.nombre",150.0));
+// Definir las acciones de actualizar y eliminar
+        Consumer<Producto> updateAction = (Producto producto) -> {
+            System.out.println("Actualizar: " + producto);
+            //editForm(producto);
+        };
+        Consumer<Producto> deleteAction = (Producto producto) -> {System.out.println("Actualizar: " + producto);
+            ps.delete(producto.getIdProducto()); /*deletePerson(usuario);*/
+            double with=stage.getWidth()/1.5;
+            double h=stage.getHeight()/2;
+            showToast(stage, "Se eliminó correctamente!!", 2000, with, h);
+            listar();
+        };
+// Usar el helper para agregar las columnas en el orden correcto
+        tableViewHelper.addColumnsInOrderWithSize(tableView, columns,updateAction, deleteAction );
+// Agregar botones de eliminar y modificar
+        tableView.setTableMenuButtonVisible(true);
+        listar();
+
 
     }
+
+
+    public void listar(){
+        try {
+            tableView.getItems().clear();
+            listarProducto = FXCollections.observableArrayList(ps.list());
+            tableView.getItems().addAll(listarProducto);
+            // Agregar un listener al campo de texto txtFiltroDato para filtrar los productos
+            txtFiltroDato.textProperty().addListener((observable, oldValue, newValue) -> {
+                //filtrarProductos(newValue);
+            });
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
 
 
