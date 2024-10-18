@@ -45,7 +45,7 @@ public class UnidadMedidaService {
     }
 
     public UnidadMedida searchById(Long id){
-        return repo.findById(id).get();
+        return repo.findById(id).orElse(null);
     }
 
     public List<ComboBoxOption> listarCombobox(){

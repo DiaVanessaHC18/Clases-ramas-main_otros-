@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.upeu.sysalmacenfx.control.ProductoController">
+<AnchorPane fx:id="miContenedor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.upeu.sysalmacenfx.control.ProductoController">
    <children>
       <VBox layoutX="14.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
          <children>
@@ -17,7 +17,7 @@
                      </font>
                   </Label>
                   <Label layoutX="275.0" layoutY="62.0" text="Filtrar Registro:" />
-                  <TextField layoutX="275.0" layoutY="88.0" prefHeight="25.0" prefWidth="200.0" />
+                  <TextField fx:id="txtFiltroDato" layoutX="275.0" layoutY="88.0" prefHeight="25.0" prefWidth="200.0" />
                   <Button layoutX="486.0" layoutY="88.0" mnemonicParsing="false" text="Button" />
                </children>
                <VBox.margin>
@@ -74,7 +74,7 @@
                                     <Insets left="5.0" />
                                  </GridPane.margin>
                               </Label>
-                              <TextField prefHeight="25.0" prefWidth="105.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                              <TextField fx:id="txtNombreProducto" prefHeight="25.0" prefWidth="105.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets right="5.0" />
                                  </GridPane.margin>
@@ -82,7 +82,7 @@
                                     <Insets left="5.0" />
                                  </opaqueInsets>
                               </TextField>
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <TextField fx:id="txtPUnit" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>
@@ -103,40 +103,40 @@
                               <Label style="-fx-alignment: center;" text="Stock. Old:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                               <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="76.0" style="-fx-alignment: center;" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                               <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="88.0" style="-fx-alignment: center;" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-                              <ComboBox maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="240.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="5">
+                              <ComboBox fx:id="cbxMarca" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="240.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="5">
                                  <GridPane.margin>
                                     <Insets right="5.0" />
                                  </GridPane.margin></ComboBox>
-                              <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="6">
+                              <ComboBox fx:id="cbxCategoria" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="6">
                                  <GridPane.margin>
                                     <Insets right="5.0" />
                                  </GridPane.margin></ComboBox>
-                              <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="7">
+                              <ComboBox fx:id="cbxUnidMedida" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="7">
                                  <GridPane.margin>
                                     <Insets right="5.0" />
                                  </GridPane.margin></ComboBox>
-                              <TextField maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="3">
+                              <TextField fx:id="txtUtilidad" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="3">
                                  <GridPane.margin>
                                     <Insets right="5.0" />
                                  </GridPane.margin></TextField>
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <TextField GridPane.columnIndex="3" GridPane.rowIndex="4">
+                              <TextField fx:id="txtStock" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField fx:id="txtStockOld" GridPane.columnIndex="3" GridPane.rowIndex="4">
                                  <GridPane.margin>
                                     <Insets right="5.0" />
                                  </GridPane.margin></TextField>
-                              <TextField GridPane.columnIndex="3" GridPane.rowIndex="2">
+                              <TextField fx:id="txtPUnitOld" GridPane.columnIndex="3" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets right="5.0" />
                                  </GridPane.margin>
                               </TextField>
-                              <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="400.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="9" GridPane.rowSpan="2" />
+                              <Label fx:id="lbnMsg" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="400.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="9" GridPane.rowSpan="2" />
                            </children>
                         </GridPane>
                      </children>
                   </AnchorPane>
                   <AnchorPane maxWidth="1.7976931348623157E308" prefWidth="225.0">
                      <children>
-                        <TableView layoutX="32.0" layoutY="21.0" maxWidth="1.7976931348623157E308" prefHeight="315.0" prefWidth="207.0" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="13.0">
+                        <TableView fx:id="tableView" layoutX="32.0" layoutY="21.0" maxWidth="1.7976931348623157E308" prefHeight="315.0" prefWidth="207.0" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="13.0">
                           <columns>
                             <TableColumn prefWidth="75.0" text="C1" />
                             <TableColumn prefWidth="75.0" text="C2" />

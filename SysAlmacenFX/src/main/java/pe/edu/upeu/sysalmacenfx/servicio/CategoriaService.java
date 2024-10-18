@@ -45,7 +45,7 @@ public Categoria update(Categoria to){
     }
 
     public Categoria searchById(Long id){
-        return repo.findById(id).get();
+        return repo.findById(id).orElse(null);
     }
 
 
