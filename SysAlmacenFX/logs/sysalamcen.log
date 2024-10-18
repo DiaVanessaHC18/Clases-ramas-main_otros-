@@ -1,0 +1,15 @@
+2024-10-18T07:59:35.812-05:00  INFO 9384 --- [SysAlmacenFX] [main] p.e.u.s.SysAlmacenFxApplication          : Starting SysAlmacenFxApplication using Java 18.0.1.1 with PID 9384 (C:\POO1\Clases-ramas-main_otros-\SysAlmacenFX\target\classes started by DTI-Laboratorio in C:\POO1\Clases-ramas-main_otros-\SysAlmacenFX)
+2024-10-18T07:59:35.814-05:00  INFO 9384 --- [SysAlmacenFX] [main] p.e.u.s.SysAlmacenFxApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-10-18T07:59:36.365-05:00  INFO 9384 --- [SysAlmacenFX] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-18T07:59:36.442-05:00  INFO 9384 --- [SysAlmacenFX] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 71 ms. Found 15 JPA repository interfaces.
+2024-10-18T07:59:36.826-05:00  INFO 9384 --- [SysAlmacenFX] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-18T07:59:36.870-05:00  INFO 9384 --- [SysAlmacenFX] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-10-18T07:59:36.892-05:00  INFO 9384 --- [SysAlmacenFX] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-18T07:59:37.170-05:00  INFO 9384 --- [SysAlmacenFX] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-18T07:59:37.192-05:00  INFO 9384 --- [SysAlmacenFX] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-18T07:59:37.289-05:00  INFO 9384 --- [SysAlmacenFX] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@28a6e171
+2024-10-18T07:59:37.290-05:00  INFO 9384 --- [SysAlmacenFX] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-18T07:59:38.314-05:00  INFO 9384 --- [SysAlmacenFX] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-18T07:59:38.342-05:00  INFO 9384 --- [SysAlmacenFX] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-18T07:59:38.648-05:00  INFO 9384 --- [SysAlmacenFX] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-10-18T07:59:38.870-05:00  INFO 9384 --- [SysAlmacenFX] [main] p.e.u.s.SysAlmacenFxApplication          : Started SysAlmacenFxApplication in 3.55 seconds (process running for 3.89)
