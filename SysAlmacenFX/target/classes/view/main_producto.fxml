@@ -142,5 +142,10 @@
             </HBox>
          </children>
       </VBox>
+      <Label layoutX="986.0" layoutY="14.0" text="Diana Vanessa Huanca Cruz" textFill="#41029c">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
