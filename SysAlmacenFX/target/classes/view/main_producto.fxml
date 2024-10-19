@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="miContenedor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="472.0" prefWidth="1155.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.upeu.sysalmacenfx.control.ProductoController">
+<AnchorPane fx:id="miContenedor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="472.0" prefWidth="1195.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.upeu.sysalmacenfx.control.ProductoController">
    <children>
       <VBox layoutX="14.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
          <children>
@@ -136,7 +136,7 @@
                   </AnchorPane>
                   <AnchorPane maxWidth="1.7976931348623157E308" prefWidth="225.0">
                      <children>
-                        <TableView fx:id="tableView" layoutX="32.0" layoutY="21.0" maxWidth="1.7976931348623157E308" prefHeight="315.0" prefWidth="712.0" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="-492.0" />
+                        <TableView fx:id="tableView" layoutX="32.0" layoutY="21.0" maxWidth="1.7976931348623157E308" prefHeight="315.0" prefWidth="745.0" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="-525.0" />
                      </children></AnchorPane>
                </children>
             </HBox>

@@ -110,11 +110,12 @@ public class ProductoController {
         columns.put("ID Pro.", new ColumnInfo("idProducto", 50.0)); // Columna visible "Columna 1" mapea al campo "campo1"
         columns.put("Nombre Producto", new ColumnInfo("nombre", 120.0)); // Columna visible "Columna 2" mapea al campo "campo2"
         columns.put("P. Unitario", new ColumnInfo("pu", 100.0)); // Columna visible "Columna 2" mapea al campo "campo2"
-        columns.put("Utilidad", new ColumnInfo("utilidad", 80.0)); // Columna visible "Columna 2" mapea al campo "campo2"
-        columns.put("Marca", new ColumnInfo("marca.nombre", 70.0)); // Columna visible "Columna 2" mapea al campo "campo2"
+        columns.put("Utilidad", new ColumnInfo("utilidad", 85.0)); // Columna visible "Columna 2" mapea al campo "campo2"
+        columns.put("Marca", new ColumnInfo("marca.nombre", 85.0)); // Columna visible "Columna 2" mapea al campo "campo2"
         columns.put("Categoria", new ColumnInfo("categoria.nombre", 80.0)); // Columna visible "Columna 2" mapea al campo "campo2"
 
-        columns.put("Unid. Medida",new ColumnInfo("unidadMedida.nombre",150.0));
+        columns.put("Unid. Medida", new ColumnInfo("unidadMedida.nombreMedida",90.0));
+
 // Definir las acciones de actualizar y eliminar
         Consumer<Producto> updateAction = (Producto producto) -> {
             System.out.println("Actualizar: " + producto);
